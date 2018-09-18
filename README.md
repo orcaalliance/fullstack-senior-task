@@ -1,7 +1,7 @@
 Senior Developer Task
 =====================
 
-Goal: you need to create an app, that fetches cryptocurrency balances from an exchange, converts it to USD, and outputs them to a line chart, where X axis is time, and Y axis is the balance of a specified currency. You can see the example.
+Goal: you need to create an app, that fetches cryptocurrency balances from an exchange, converts it to USD, and outputs them to a line chart, where X axis is time, and Y axis is the balance of a specified currency. You can see the [example](https://raw.githubusercontent.com/orcaalliance/fullstack-senior-task/master/example.png).
 
 Conditions:
 
