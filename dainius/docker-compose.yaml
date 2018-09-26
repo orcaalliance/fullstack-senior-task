@@ -1,0 +1,42 @@
+version: '3'
+services:
+  
+  # redis:
+  #   image: redis
+  #   command: ["redis-server", "--appendonly", "yes"]
+  #   volumes:
+  #     - redis-data:/data
+  #   ports:
+  #     - 6379:6379
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+    - data-volume:/data/db
+   
+
+  crypto-wallet-api:
+    build: ./crypto-wallet-api
+    command: npm start
+    volumes:
+      - ./crypto-wallet-api:/usr/apiapp
+    ports:
+      - "3000:3000"
+    depends_on:
+      - "mongo"  
+    environment:
+      - MONGO_URL=mongodb://mongo:27017
+      - USE_MOCKS=true
+
+  web-server:
+    build: ./web-server
+    command: yarn serve
+    volumes:
+      - ./web-server:/usr/app
+    ports:
+      - "8080:8080"
+
+volumes:
+  data-volume:
